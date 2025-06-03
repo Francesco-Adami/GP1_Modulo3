@@ -64,11 +64,11 @@ public class Player : MonoBehaviour
         characterController.Move(speed * Time.deltaTime * inputController.moveDirection);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            Die();
+            await Die();
         }
     }
 

@@ -50,7 +50,7 @@ public class Bomb : MonoBehaviour
     //    Destroy(gameObject);
     //}
 
-    private void ExplodeOnGrid()
+    private async void ExplodeOnGrid()
     {
         int power = Mathf.RoundToInt(maximumExplosionRadius);
         Vector3[] dirs = { Vector3.forward, Vector3.back, Vector3.right, Vector3.left };
@@ -69,7 +69,7 @@ public class Bomb : MonoBehaviour
                     {
                         if (c.TryGetComponent<Player>(out var player))
                         {
-                            player.Die();
+                            await player.Die();
                         }
                         stop = true;
                         break;
